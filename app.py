@@ -31,14 +31,7 @@ def classify():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return 1
-
-            # im = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # im = im.filter(ImageFilter.BoxBlur(5))
-            # im.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-            # return send_from_directory(app.config["UPLOAD_FOLDER"], filename=filename, as_attachment=True)
+            return '1'
     return '''
     <!doctype html>
     <title>Choose Image to Classify</title>
@@ -48,3 +41,8 @@ def classify():
       <input type=submit value=Upload>
     </form>
     '''
+
+
+
+if __name__ == '__main__':
+    app.run()
